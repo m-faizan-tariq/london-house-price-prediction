@@ -64,3 +64,80 @@ london-house-price-prediction/
 ├── FPR.pdf                # Final Project Report (Full Thesis)
 ├── assets/                # Screenshots and visualisation images
 └── notebooks/             # Data cleaning & model training scripts
+🛠️ Installation & Requirements
+Requires Python 3.9+
+
+1. Clone the repository:
+
+bash
+git clone https://github.com/mt23acy/london-house-price-prediction.git
+cd london-house-price-prediction
+2. Install dependencies:
+
+bash
+pip install numpy pandas scikit-learn xgboost tensorflow gradio matplotlib
+🚀 How to Run the Gradio Visualization Tool
+The interactive tool allows address lookups to view historical sales and predict property
+valuations using the optimised XGBoost model.
+
+1. Prepare the data — Ensure london_merged_df_filtered.csv is in the root directory.
+
+2. Run the script:
+
+bash
+python main.py
+3. Open the UI — Gradio will provide a local URL (e.g., http://127.0.0.1:7860)
+
+4. Use the tool:
+
+Type a Street Name to filter the database
+
+Select House Number (PAON) and Postcode from dynamic dropdowns
+
+Click "Get Prices & Predict Current" for the historical price trend and AI valuation
+
+💡 Key Findings
+XGBoost Superiority — Achieved R² of 0.83, proving its effectiveness on complex
+structured tabular data
+
+Feature Integration Value — Merging EPC data (floor area, habitable rooms) significantly
+boosted predictive power over PPD alone
+
+Deep Learning vs. Ensembles — LSTM underperformed Gradient Boosting for this tabular
+task, showing sequence modelling is not a silver bullet for real estate without tuning
+
+Encoding Strategy — Label Encoding was the necessary compromise over One-Hot Encoding
+due to London's high-cardinality geographical data
+
+Temporal Robustness — Near-identical Test and 2024 Hold-Out R² scores confirm the
+XGBoost model generalises well to unseen future market data
+
+🔮 Future Work
+Macroeconomic Features — Incorporate interest rates, inflation, and proximity to
+tube stations and local amenities
+
+Advanced Encoding — Target Encoding or CatBoost Encoding to capture geographical
+nuances without artificial ordering
+
+Spatial Architectures — Graph Neural Networks (GNNs) to model relationships between
+neighbouring properties and postcodes
+
+Hyperparameter Optimisation — Bayesian Optimisation for finer tuning of XGBoost
+and MLP architectures
+
+👤 Author
+Muhammad Faizan Tariq
+MSc Data Science and Analytics — University of Hertfordshire (2025)
+
+LinkedIn
+GitHub
+Email
+
+📜 License
+Data: Open Government Licence v3.0
+— Contains HM Land Registry & EPC data
+
+Code: MIT License — See LICENSE for details
+
+Muhammad Faizan Tariq | MSc Data Science and Analytics — University of Hertfordshire, 2025
+
