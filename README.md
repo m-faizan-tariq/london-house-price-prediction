@@ -1,14 +1,14 @@
 # 🏠 London House Price Prediction: Machine Learning vs. Deep Learning
 
-[
-[
-[
-[
-[
-[
-[
+[![Python](https://img.shields.io/badge/Python-3.9+-blue.svg?style=for-the-badge&logo=python&logoColor=white)](https://www.python.org/)
+[![Pandas](https://img.shields.io/badge/Pandas-2.0-150458?style=for-the-badge&logo=pandas&logoColor=white)](https://pandas.pydata.org/)
+[![Scikit-Learn](https://img.shields.io/badge/Scikit--Learn-1.2-F7931E?style=for-the-badge&logo=scikit-learn&logoColor=white)](https://scikit-learn.org/)
+[![XGBoost](https://img.shields.io/badge/XGBoost-1.7-blueviolet?style=for-the-badge&logo=xgboost&logoColor=white)](https://xgboost.ai/)
+[![TensorFlow](https://img.shields.io/badge/TensorFlow-2.12-FF6F00?style=for-the-badge&logo=tensorflow&logoColor=white)](https://www.tensorflow.org/)
+[![Gradio](https://img.shields.io/badge/Gradio-3.0-orange?style=for-the-badge&logo=gradio&logoColor=white)](https://gradio.app/)
+[![Jupyter](https://img.shields.io/badge/Jupyter-Notebook-F37626?style=for-the-badge&logo=jupyter&logoColor=white)](https://jupyter.org/)
 
-***
+---
 
 ## 📖 Overview
 
@@ -22,7 +22,7 @@ Regression, Random Forest, XGBoost, Multi-Layer Perceptron (MLP), and Long Short
 (LSTM) — were evaluated on a 2024 hold-out set to test temporal generalisation and
 real-world applicability.
 
-***
+---
 
 ## 📊 Model Performance Results
 
@@ -37,7 +37,7 @@ Models were trained on historical data (2015–2023) and validated against a fin
 | LSTM (Deep Learning) | 0.63 | 0.64 | ⚠️ Weak |
 | Linear Regression | 0.55 | 0.59 | 📏 Baseline |
 
-***
+---
 
 ## 🗄️ Dataset
 
@@ -52,7 +52,7 @@ The project uses an integrated dataset formed by merging two public sources unde
 > constraints (>32GB RAM) were resolved using Label Encoding and ZRAM compression, enabling
 > training on over a decade of London freehold property records.
 
-***
+---
 
 ## 📂 Project Structure
 
@@ -64,9 +64,7 @@ london-house-price-prediction/
 ├── FPR.pdf                # Final Project Report (Full Thesis)
 ├── assets/                # Screenshots and visualisation images
 └── notebooks/             # Data cleaning & model training scripts
-```
 
-***
 
 ## 🛠️ Installation & Requirements
 
