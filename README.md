@@ -1,14 +1,14 @@
 # 🏠 London House Price Prediction: Machine Learning vs. Deep Learning
 
-[![Python](https://img.shields.io/badge/Python-3.9+-blue.svg?style=for-the-badge&logo=python&logoColor=white)](https://www.python.org/)
-[![Pandas](https://img.shields.io/badge/Pandas-2.0-150458?style=for-the-badge&logo=pandas&logoColor=white)](https://pandas.pydata.org/)
-[![Scikit-Learn](https://img.shields.io/badge/Scikit--Learn-1.2-F7931E?style=for-the-badge&logo=scikit-learn&logoColor=white)](https://scikit-learn.org/)
-[![XGBoost](https://img.shields.io/badge/XGBoost-1.7-blueviolet?style=for-the-badge&logo=xgboost&logoColor=white)](https://xgboost.ai/)
-[![TensorFlow](https://img.shields.io/badge/TensorFlow-2.12-FF6F00?style=for-the-badge&logo=tensorflow&logoColor=white)](https://www.tensorflow.org/)
-[![Gradio](https://img.shields.io/badge/Gradio-3.0-orange?style=for-the-badge&logo=gradio&logoColor=white)](https://gradio.app/)
-[![Jupyter](https://img.shields.io/badge/Jupyter-Notebook-F37626?style=for-the-badge&logo=jupyter&logoColor=white)](https://jupyter.org/)
+[
+[
+[
+[
+[
+[
+[
 
----
+***
 
 ## 📖 Overview
 
@@ -22,7 +22,7 @@ Regression, Random Forest, XGBoost, Multi-Layer Perceptron (MLP), and Long Short
 (LSTM) — were evaluated on a 2024 hold-out set to test temporal generalisation and
 real-world applicability.
 
----
+***
 
 ## 📊 Model Performance Results
 
@@ -37,7 +37,7 @@ Models were trained on historical data (2015–2023) and validated against a fin
 | LSTM (Deep Learning) | 0.63 | 0.64 | ⚠️ Weak |
 | Linear Regression | 0.55 | 0.59 | 📏 Baseline |
 
----
+***
 
 ## 🗄️ Dataset
 
@@ -52,19 +52,46 @@ The project uses an integrated dataset formed by merging two public sources unde
 > constraints (>32GB RAM) were resolved using Label Encoding and ZRAM compression, enabling
 > training on over a decade of London freehold property records.
 
----
+### 📁 Input Dataset — `london_merged_df_filtered.csv`
+
+The model and visualisation tool require a pre-processed CSV file named
+`london_merged_df_filtered.csv` as input. This file is **not included in the repository**
+due to its large size, but can be reproduced by following these steps:
+
+1. Download the full **Price Paid Data (PPD)** complete file from
+   [HM Land Registry](https://www.gov.uk/government/statistical-data-sets/price-paid-data-downloads)
+2. Download the full **EPC dataset** for England and Wales from
+   [MHCLG Open Data](https://epc.opendatacommunities.org/)
+3. Merge the two datasets by matching property address fields
+4. Apply the following filters to produce the input CSV:
+   - **Region:** London only (filter by London districts/postcodes)
+   - **Property type:** Freehold houses only (exclude flats and leasehold)
+   - **Price range:** Remove extreme outliers (min/max price thresholds applied)
+   - **Date range:** 2015–2024 transactions only
+   - **Records with missing critical fields** (floor area, postcode, price) are dropped
+5. Save the resulting filtered dataframe as `london_merged_df_filtered.csv` in the
+   root directory of the project
+
+> This filtering process reduces the full national PPD+EPC dataset down to a
+> London-specific, model-ready CSV that the training scripts and Gradio tool
+> can load directly without memory issues.
+
+***
 
 ## 📂 Project Structure
 
 ```text
 london-house-price-prediction/
-├── README.md              # Project documentation
-├── index.html             # GitHub Pages portfolio site
-├── main.py                # Gradio visualization tool & model logic
-├── FPR.pdf                # Final Project Report (Full Thesis)
-├── assets/                # Screenshots and visualisation images
-└── notebooks/             # Data cleaning & model training scripts
+├── README.md                        # Project documentation
+├── index.html                       # GitHub Pages portfolio site
+├── main.py                          # Gradio visualization tool & model logic
+├── FPR.pdf                          # Final Project Report (Full Thesis)
+├── assets/                          # Screenshots and visualisation images
+├── notebooks/                       # Data cleaning & model training scripts
+└── london_merged_df_filtered.csv    # Input dataset (generate locally — see Dataset section)
+```
 
+***
 
 ## 🛠️ Installation & Requirements
 
@@ -88,7 +115,8 @@ pip install numpy pandas scikit-learn xgboost tensorflow gradio matplotlib
 The interactive tool allows address lookups to view historical sales and predict property
 valuations using the optimised XGBoost model.
 
-**1. Prepare the data** — Ensure `london_merged_df_filtered.csv` is in the root directory.
+**1. Prepare the data** — Ensure `london_merged_df_filtered.csv` is in the root directory
+(see the Dataset section above for how to generate this file).
 
 **2. Run the script:**
 ```bash
