@@ -11,9 +11,9 @@ for traditional modelling techniques due to the non-linearity of influencing fac
 project investigates the extent to which machine learning (ML) and deep learning (DL) models
 improve short-term prediction accuracy for freehold houses in London. By merging HM Land
 Registry Price Paid Data (PPD) with Energy Performance Certificate (EPC) datasets, the study
-overcomes the feature deficiency of transactional records alone. Five models — Linear
+overcomes the feature deficiency of transactional records alone. Five models including Linear
 Regression, Random Forest, XGBoost, Multi-Layer Perceptron (MLP), and Long Short-Term Memory
-(LSTM) — were evaluated on a 2024 hold-out set to test temporal generalisation and
+(LSTM) were evaluated on a 2024 hold-out set to test temporal generalisation and
 real-world applicability.
 
 ***
