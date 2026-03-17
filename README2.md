@@ -123,6 +123,54 @@ pip install numpy pandas scikit-learn xgboost tensorflow gradio matplotlib
 
 ***
 
+## 📥 Preparing the Data Locally
+
+**Option A – Use the ready-made zipped datasets (recommended)**
+
+1. Extract `london_merged_df_filtered_2015.zip` to get:
+   - `london_merged_df_filtered_2015.csv`
+2. Ensure the following three files are in the same folder:
+   - `london_merged_df_filtered.zip`
+   - `london_merged_df_filtered.z01`
+   - `london_merged_df_filtered.z02`
+3. Open **`london_merged_df_filtered.zip`** with an archive tool that supports split archives (7‑Zip, WinRAR, macOS Archive Utility). This will reconstruct:
+   - `london_merged_df_filtered.csv`
+4. Move both CSV files into the project root (the same folder as `main.py` and `README.md`):
+   - `london_merged_df_filtered_2015.csv`
+   - `london_merged_df_filtered.csv`
+
+**Option B – Regenerate from raw PPD + EPC**
+
+If you prefer to recreate the CSVs from scratch:
+
+1. Download the full **Price Paid Data (PPD)** complete file (England & Wales) from the official HM Land Registry source.  
+2. Download the full **EPC dataset** for England and Wales from the official open data portal.  
+3. Merge the two datasets on address fields (e.g. postcode, PAON, street, or official address keys).  
+4. Filter the merged data:
+   - Keep **London** records only (by region / postcode).
+   - Keep **freehold houses only** (exclude flats and leasehold).
+   - Apply **price range limits** to remove extreme outliers.
+   - Restrict the **analysis window to 2015–2024** for the 10‑year dataset.
+   - Drop rows with missing critical fields (price, floor area, postcode, etc.).
+5. Save the resulting dataframes as:
+   - `london_merged_df_filtered_2015.csv` — 2015–2024 subset.
+   - `london_merged_df_filtered.csv` — full merged London subset.
+
+---
+
+## 🚀 How to Run the Gradio Visualization Tool (`main.py`)
+
+The interactive Gradio app in `main.py` exposes the trained XGBoost model as an address‑level valuation tool.
+
+**1. Ensure data is available**
+
+- Confirm that `london_merged_df_filtered.csv` is present in the project root.
+
+**2. Run the app from the repo root:**
+```bash
+python main.py
+```
+
 On startup, `main.py` will:
 
 - Load `london_merged_df_filtered.csv` from the project root.
@@ -151,7 +199,7 @@ On startup, `main.py` will:
   - Category mappings and default values  
   so that new predictions are consistent with the training setup.
 
-Once the script has finished initialisation, Gradio will start and print a local URL such as:
+3. Once the script has finished initialisation, Gradio will start and print a local URL such as:
 
 ```text
 http://127.0.0.1:7860
@@ -159,7 +207,7 @@ http://127.0.0.1:7860
 Open this URL in your browser.
 
 ---
-
+```
 **4. Use the interface**
 
 In the browser UI:
