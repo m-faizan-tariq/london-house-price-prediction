@@ -106,6 +106,23 @@ london-house-price-prediction/
 
 `main.py` loads `london_merged_df_filtered.csv`, performs preprocessing and label encoding, trains an XGBoost regressor (if needed), and exposes a Gradio interface for interactive address-based queries using the trained model.
 
+## 🛠️ Installation & Requirements
+
+Requires **Python 3.9+**
+
+**1. Clone the repository:**
+```bash
+git clone https://github.com/mt23acy/london-house-price-prediction.git
+cd london-house-price-prediction
+```
+
+**2. Install dependencies:**
+```bash
+pip install numpy pandas scikit-learn xgboost tensorflow gradio matplotlib
+```
+
+***
+
 On startup, `main.py` will:
 
 - Load `london_merged_df_filtered.csv` from the project root.
